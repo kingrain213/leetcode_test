@@ -16,3 +16,28 @@
 链接：https://leetcode-cn.com/problems/two-sum
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
+import numbers
+
+#暴力检索方法，两层循环，时间复杂度O(N2)
+def violence_search(nums: list, target:numbers.Number) ->list:
+    for index, val in enumerate(nums):
+        for j in (range(index+1, len(nums))):
+            if val + nums[j] == target:
+                return [index, j]
+    return None
+
+
+#hash_map映射方法，采用一层循环便达到效果
+def hash_search(nums:list, target:numbers.Number) -> list:
+    detais = dict()
+    for index, val in enumerate(nums):
+        if target - val in detais.keys():
+            return [detais[target-val], index]
+        detais[val] = index
+    return None
+
+if __name__ == '__main__':
+    nums = [1,2,3,4]
+    target = 5
+    result = violence_search(nums, target)
+    print(result)
