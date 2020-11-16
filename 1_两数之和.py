@@ -28,6 +28,7 @@ def violence_search(nums: list, target:numbers.Number) ->list:
 
 
 #hash_map映射方法，采用一层循环便达到效果
+#dict的key可以是int、str、但不能是list
 def hash_search(nums:list, target:numbers.Number) -> list:
     detais = dict()
     for index, val in enumerate(nums):
