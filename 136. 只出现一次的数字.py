@@ -25,6 +25,7 @@ from functools import reduce
 1）暴力匹配法，循环整个数组存入hash表中，最后统计dict中每个key出现的次数
 2）暴力匹配法，set(list)去重后，求和二倍减去原数组，就是出现一次的数字
 3）异或特性：数字异或自己为0，异或0为自己，异或具有交换律
+4）在3的基础上，借助reduce和lambda函数属性精简，lambda自定义函数，reduce输入一个list，重复进行前面的累积操作
 """
 
 def singleNumber(nums:list) -> int:
@@ -34,7 +35,7 @@ def singleNumber(nums:list) -> int:
     return result
 
 def singleNumber_v2(nums:list) -> int:
-    return reduce(lambda x,y : x^y, nums)
+    return (reduce(lambda x,y: x^y, nums))
 
 if __name__ == '__main__':
     
