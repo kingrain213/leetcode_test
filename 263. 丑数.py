@@ -30,7 +30,7 @@ import time
 """
 
 def isUgly(num):
-    if num < 0:
+    if num <= 0:
         return False
     while True:
         if num == 1 or num == 2 or num == 5:
