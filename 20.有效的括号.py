@@ -34,7 +34,7 @@ def isValid(s):
         if temp in sign.keys():
             if not stack or sign[temp] != stack[-1]:
                return False
-            stack.pop() #记得最后以为匹配之后要pop出来
+            stack.pop() #记得最后一位匹配之后要pop出来
         #如果是左括号，直接进栈
         else:
             stack.append(temp)
