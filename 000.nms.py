@@ -52,4 +52,4 @@ if __name__ == '__main__':
     
     out = py_cpu_nms(boxes, thresh)
     
-    print(out)
+    print(out)#[2, 1, 3]
