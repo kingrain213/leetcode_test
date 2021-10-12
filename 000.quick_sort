@@ -3,25 +3,31 @@ import json
 import os
 import sys
 
-def quick_sort(li, start, end):
+def quick_sort(l, start, end):
+    #print(l, start, end)
     if start >= end:
         return
     left = start
     right = end
-    mid = li[left]
+    val = l[start]
     while left < right:
-        while left < right and li[right] >= mid:
+        while left < right and l[right] >= val:
             right -= 1
-        li[left] = li[right]
-        while left < right and li[left] < mid:
+        
+        while left < right and l[left] <= val:
             left += 1
-        li[right] = li[left]
-    li[left] = mid
-    quick_sort(li, start, left-1)
-    quick_sort(li, left+1, end)    
+            
+        if left < right:
+            l[left], l[right] = l[right], l[left]
+    
+    l[start], l[left] = l[left], l[start]
+
+    quick_sort(l, start, left-1)
+    quick_sort(l, left+1, end)    
 
 if __name__ == '__main__':
     l = [1,2,5,4,3,0,-9]
+    l = [55,2,33,1,0,44,6,88,10]
     quick_sort(l, 0, len(l) -1)
     print(l)
     
