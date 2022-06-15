@@ -37,7 +37,7 @@ def py_cpu_nms(dets, thresh):
         ious = overlap / (areas[i] + areas[index[1:]] - overlap)
 
         idx = np.where(ious <= thresh)[0]
-        index = index[idx+1] # because index start from 1 
+        index = index[idx+1] # index当中第0位，也就是i直接取出放在keep里，剩下索引从1开始，idx少了一位，所以要+1
 
     return keep
 
